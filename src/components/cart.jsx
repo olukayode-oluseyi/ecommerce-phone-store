@@ -13,7 +13,7 @@ const Cart = () => {
   const [decider, setDecider] = useState(true)
   useEffect(() => {
     handleCartColumns()
-  }, [])
+  }, [decider])
 
    const handleCartColumns = () => {
      window.addEventListener("load", () => {
