@@ -1,38 +1,321 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-link {
+  color: white; 
+ padding: 0;
+ display: flex;
+ align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-link button{
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.nav-link button svg{
+margin-right: .3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.text-title{
+  text-transform: uppercase;
+}
+.text-title {
+  font-family: cursive;
+}
+
+.text-title h3 {
+  margin: 0;
+}
+
+nav a {
+  font-family: cursive;
+}
+
+.card{
+  text-shadow: 1px 1px 1px rgb(255, 0, 0);
+  margin-top: 2rem;
+}
+.card:hover .card {
+transform: scale(1.2);
+background: black;
+}
+
+.card .img-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-top: 1.5rem;
+  overflow: hidden;
+  
+}
+
+.card:hover img {
+  transform: scale(1.2);
+}
+.img-container a {
+  display: flex;
+  justify-content: center;
+}
+.card  img {
+  width: 60%;
+  padding-bottom: 3rem;
+  align-self: center;
+  transition: all .7s ease-in;
+}
+
+.card p{
+  margin: 0;
+}
+.card button{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-size: 1rem;
+  padding: .3rem .5rem;
+  color: rgb(38, 88, 134);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: none;
+  border-top-left-radius: 5px;
+  background-color: rgb(106, 106, 235);
+  color: white;
+  transform: translate(100%, 100%);
+  transition: all .7s ease-in;
+  cursor: pointer;
+}
+.card:hover button {
+  transform: translate(0%, 0%);
+}
+.card .card-footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-footer h5{
+  margin: 0;
+}
+
+.details-page {
+color: rgb(82, 73, 73)
+}
+
+.details-page .container {
+  margin-top: 4rem;
+}
+.details-page .phone-title {
+  padding-bottom: 3rem;
+}
+.phone-title h3{
+  font-family: cursive;
+}
+
+.phone-info h4{
+   padding-bottom: 1rem;
+   margin: 0;
+   font-family: cursive;
+}
+.phone-info h5 {
+  padding-bottom: 1rem;
+  margin: 0;
+  font-family: cursive;
+}
+.phone-info h3 {
+  padding-bottom: 1rem;
+  margin: 0;
+   font-family: cursive;
+   font-weight: bold;
+}
+.phone-info h6 {
+  padding-bottom: 1rem;
+  margin: 0;
+  font-family: cursive;
+  font-weight: bold;
+}
+.phone-info p {
+  padding-bottom: 2rem;
+  margin: 0;
+  line-height: 25px;
+}
+.btns {
+  display: flex;
+}
+
+.btns button:first-child{
+  margin-right: 1rem;
+  color: rgb(18, 124, 196);
+  background: transparent;
+  padding: .3rem .5rem;
+  border: 2px solid rgb(3, 153, 253);
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 1s ease;
+}
+.btns button:nth-child(2) {
+  margin-right: 1rem;
+  color: rgb(255, 217, 0);
+  background: transparent;
+  padding: .3rem .5rem;
+  border: 2px solid rgb(255, 217, 0);
+  border-radius: 5px;
+   font-weight: 700;
+   transition: all 1s ease;
+}
+.btns button:first-child:hover{
+  transform: scale(1.1);
+  color: white;
+ background-color: rgb(18, 124, 196);   
+}
+
+.btns button:nth-child(2):hover {
+  transform: scale(1.1);
+  color: white;
+  background-color: rgb(255, 217, 0);
+}
+
+button:focus {
+  outline: none;
+}
+
+.modalDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.377);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-modal {
+background-color: white;
+color: rgba(12, 12, 12, 0.411);
+text-transform: capitalize;
+border-radius: 3px;
+}
+
+.my-modal h4{
+  
+}
+.my-modal h3 {
+  font-weight: bold;
+}
+.modal-container{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-product-info{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.modal-product-info img {
+  height: 16rem;
+ margin-bottom: 1rem;
+ margin-top: ;
+}
+.modal-btns {
+  display: flex;
+}
+.modal-btns button{
+  margin: .5rem;
+}
+
+.modal-btns button:nth-child(1) {
+  color: rgb(18, 124, 196);
+  background: transparent;
+  padding: .3rem .5rem;
+  border: 2px solid rgb(3, 153, 253);
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 1s ease;
+}
+
+.modal-btns button:first-child:hover {
+  transform: scale(1.1);
   color: white;
+  background-color: rgb(18, 124, 196);
 }
 
-.App-link {
-  color: #61dafb;
+.modal-btns button:nth-child(2) {
+  color: rgb(255, 217, 0);
+  background: transparent;
+  padding: .3rem .5rem;
+  border: 2px solid rgb(255, 217, 0);
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 1s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-btns button:nth-child(2):hover {
+  transform: scale(1.1);
+  color: white;
+  background-color: rgb(255, 217, 0);
+}
+
+.cart-page {
+
+}
+
+.cart-page img {
+  height: 8rem;
+}
+.cart-page .col-sm-2{
+display: flex;
+justify-content: center;
+height: 100%;
+margin-top: 1rem;
+align-items: center;
+}
+.cart-page .col-sm-2 button{
+  padding: 0rem .4rem;
+  margin: .3rem;
+}
+
+.cart-page svg {
+  color: red;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-page h6{
+  margin: 0;
+}
+.cart-page p {
+  margin: 0;
+}
+
+.subtotal-tax-total{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  align-items: flex-end;
+  font-family: cursive;
+}
+.subtotal-tax-total p{
+  font-weight: bold;
+  margin: .3rem;
+  font-size: 1.2rem;
+  font-family: cursive;
+}
+
+.default-page {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
