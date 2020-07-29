@@ -319,3 +319,7 @@ align-items: center;
   justify-content: center;
   align-items: center;
 }
+
+.badge{
+  background-color: #6C757D;
+}
