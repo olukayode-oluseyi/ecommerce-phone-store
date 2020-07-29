@@ -16,9 +16,11 @@ const Cart = () => {
   }, [])
 
    const handleCartColumns = () => {
-     window.addEventListener("resize", () => {
+     window.addEventListener("load", () => {
        if (window.innerWidth < 768) {
          setDecider(false);
+       } else {
+         setDecider(true);
        }
      });
    };
