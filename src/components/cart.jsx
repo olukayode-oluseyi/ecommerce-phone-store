@@ -6,19 +6,35 @@ import { Link } from 'react-router-dom';
 import Title from './title';
 import CartColumns from './cartColumns';
 import MainCart from './mainCart';
+
 const Cart = () => {
   const { cart, tax,subTotal, total, increaseCount, decreaseCount, clearCart } = useContext(ProductContext);
   const { handleDeleteInCart } = useContext(ProductContext)
+  const [decider, setDecider] = useState(true)
+  useEffect(() => {
+    handleCartColumns()
+  }, [])
 
+   const handleCartColumns = () => {
+     window.addEventListener("resize", () => {
+       if (window.innerWidth < 768) {
+         setDecider(false);
+       }
+     });
+   };
   return (
+
+   
+
     <div className="container-fluid cart-page">
       {cart.length === 0 ? (
         <Title title="YOUR CART IS EMPTY" />
       ) : (
         <>
           <Title title="YOUR CART" />
-          <CartColumns />
-          <MainCart />
+            {decider? <CartColumns />: null}
+            {console.log(window.outerWidth)}
+            <MainCart />
           <div className="row">
             <div className="subtotal-tax-total">
               <Link to="/">

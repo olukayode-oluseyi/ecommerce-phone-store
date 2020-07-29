@@ -36,14 +36,14 @@ const {title, img, price, company, info, inCart, id } = detailProduct
                               </div>
                             </div>
                             <div className="row">
-                              <div className="col-6">
+                              <div className="col-md-6">
                                 <img
                                   src={`../${img}`}
                                   className="img-fluid"
                                   alt="azzezzz"
                                 />
                               </div>
-                              <div className="col-6 phone-info">
+                              <div className="col-md-6 phone-info">
                                 <h4>Model : {title}</h4>
                                 <h5>MADE BY : {company}</h5>
                                 <h3>Price : ${price}</h3>
