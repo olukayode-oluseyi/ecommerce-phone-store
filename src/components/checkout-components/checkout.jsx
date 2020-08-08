@@ -23,7 +23,7 @@ const Checkout = () => {
   const [deliveryFee, setDeliveryFee] = useState(Number);
   const [orderCode, setOrderCode] = useState('')
   useEffect(() => {
-    //retrieveUserInfoFromFirestore()
+    retrieveUserInfoFromFirestore()
   }, [user]);
 
   useEffect(() => {

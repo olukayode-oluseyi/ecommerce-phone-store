@@ -71,7 +71,7 @@ useEffect(() => {
             </div>
             <h6>PAYMENT METHOD</h6>
             <div className="payment">
-              <button>paystack button</button>
+              <PaystackButton {...componentProps}/>
               <img src={payStackImg} alt=""/>
             </div>
           </div>
