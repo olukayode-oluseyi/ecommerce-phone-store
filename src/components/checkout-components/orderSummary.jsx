@@ -11,7 +11,7 @@ const OrderSummary = ({
   paymentType,
   handleOrder,
 }) => {
-  console.log(orderCode)
+ 
   const { cart, setCart, subTotal, total, tax } = useContext(ProductContext);
   const [proceed, setProceed] = useState(false);
   const [mainTotal, setMainTotal] = useState(Number);

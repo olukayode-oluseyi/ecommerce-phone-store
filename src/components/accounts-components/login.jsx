@@ -4,7 +4,7 @@ import { ProductContext } from '../context';
 import firebase from './../../firebase';
 
 const Login = ({match}) => {
-console.log(match)
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
   const { user, setUser } = useContext(ProductContext);

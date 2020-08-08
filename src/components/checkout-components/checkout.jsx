@@ -158,7 +158,7 @@ const Checkout = () => {
   };
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(event.target.value);
+   
     if (name === "firstName") {
       setFirstName(currentUser.firstName);
     }
@@ -173,7 +173,7 @@ const Checkout = () => {
     }
   };
   const handleChange2 = (event) => {
-    console.log(event.target);
+    
     const { name, value } = event.target;
     if (name === "delivery") {
       setDeliveryType(value);

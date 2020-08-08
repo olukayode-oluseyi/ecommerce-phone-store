@@ -31,7 +31,7 @@ export const ProductProvider = (props) => {
     const productsRef = firebase.database().ref("store-products")
     productsRef.on('value', (snapshot) => {
       const databaseProducts = snapshot.val()
-      console.log(databaseProducts)
+      
       let newArray = []
       for (let databaseProduct in databaseProducts) {
         newArray.push({
@@ -55,7 +55,7 @@ export const ProductProvider = (props) => {
         })
       })
       setStoreProducts(newArray)
-      console.log(newArray)
+     
     })
 
 

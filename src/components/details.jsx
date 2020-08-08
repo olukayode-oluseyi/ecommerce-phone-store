@@ -10,7 +10,7 @@ const Details = ({match}) => {
   
     const [storeProducts, setStoreProducts] = products
     
-console.log(match)
+
     
 
     

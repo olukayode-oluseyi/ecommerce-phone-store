@@ -15,7 +15,7 @@ const AccountContent = () => {
     const [userLGA, setUserLGA] = useState('')
     const { user, setUser } = useContext(ProductContext);
     
-    console.log(user)
+  
 
     useEffect(() => {
         retrieveUserInfoFromFirestore()
@@ -39,8 +39,7 @@ const AccountContent = () => {
 
     const handleSwitch = (event) => {
       const { name, value } = event.target
-      console.log(event.target.value);
-      console.log(event.target)
+   
         let id = event.target.selectedIndex;
         if (name === 'state') {
             setId(id);
