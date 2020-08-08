@@ -43,7 +43,7 @@ const Product = (props) => {
  
 Product.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     img: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.number,

@@ -7,10 +7,10 @@ import { StoreProducts } from './../data';
 const Details = ({match}) => {
     const { details, addToCart } = useContext(ProductContext);
      const { products } = useContext(ProductContext);
-    const [detailProduct, setDetailProduct] = details
+  
     const [storeProducts, setStoreProducts] = products
     
-const {title, img, price, company, info, inCart, id } = detailProduct
+console.log(match)
     
 
     
@@ -38,9 +38,9 @@ const {title, img, price, company, info, inCart, id } = detailProduct
                             <div className="row">
                               <div className="col-md-6">
                                 <img
-                                  src={`../${img}`}
+                                  src={img}
                                   className="img-fluid"
-                                  alt="azzezzz"
+                                  alt=""
                                 />
                               </div>
                               <div className="col-md-6 phone-info">

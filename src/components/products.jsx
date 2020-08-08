@@ -3,6 +3,8 @@ import Title from "./title";
 import { ProductContext } from "./context";
 import Details from "./details";
 import Product from './product';
+ import Loader from "react-loader-spinner";
+import { StoreProducts } from './../data';
 
 const ProductList = () => {
   const { products } = useContext(ProductContext);
@@ -16,10 +18,13 @@ const ProductList = () => {
     
    
   return (
+  
+   
     <div className="container py-1">
       <div className="row">
         <Title title="Our products" />
       </div>
+      
       <div className="row">
         {storeProducts.map((product) => {
           return <Product key={product.id} product={product} />;

@@ -224,7 +224,7 @@ border-radius: 3px;
 .modal-product-info img {
   height: 16rem;
  margin-bottom: 1rem;
- margin-top: ;
+
 }
 .modal-btns {
   display: flex;
@@ -289,7 +289,10 @@ align-items: center;
   font-size: 1.5rem;
   cursor: pointer;
 }
-
+.cart-page a {
+  color: white;
+  text-decoration: none;
+}
 .cart-page h6{
   margin: 0;
 }
@@ -322,4 +325,451 @@ align-items: center;
 
 .badge{
   background-color: #6C757D;
+}
+
+.login-container {
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container form {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-container form input{
+  padding: .6rem 0;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 1rem 0rem;
+}
+.login-container form input:focus {
+outline: none;
+}
+.rem-me-forget-pwod{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   margin: 1rem 0rem;
+}
+.rem-me-forget-pwod p{
+  align-items: center;
+  margin: .5rem 0rem;
+}
+.login-container .login-btn{
+   background-color: rgb(255, 217, 0)
+}
+
+.login-container button{
+  border: none;
+  margin-top: 2rem;
+  padding: .7rem 0;
+  color: white;
+  font-size: .8rem;
+ 
+}
+
+.login-container .login-WG-btn{
+  background-color: #4285F4;
+}
+.login-container a {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  color: #6C757D;
+}
+
+.signup-container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex; 
+    flex-direction: column;
+    
+}
+
+.signup-container form {
+    padding-top: 5rem;
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  
+}
+
+.signup-container .upper-info{
+  width: 100%;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-container input:focus{
+  outline: none;
+}
+
+.upper-info input{
+border: none;
+border-bottom: 1px solid black;
+padding: .5rem 0rem;
+
+}
+
+.signup-container .lower-info {
+  width: 100%;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.lower-info input {
+   border: none;
+   border-bottom: 1px solid black;
+   padding: .5rem 0rem;
+   
+   
+}
+.signup-container input{
+ width: 48%;
+}
+
+.phone-no{
+margin-bottom: 2rem;
+width: 100%;
+}
+.phone-no input{
+   border: none;
+   border-bottom: 1px solid black;
+   padding: .5rem 0rem;
+}
+
+.signup-container button{
+width: 100%;
+margin: 1rem 0rem;
+border: none;
+background-color: #4285F4;
+padding: .5rem;
+color: white;
+}
+.signup-container form button {
+  width: 100%;
+  border: none;
+  background-color:rgb(255, 217, 0);
+  padding: .5rem;
+color: white;
+}
+.account-content {
+background-color: #F5F3F3;
+  height: 100vh;
+  width: 100%;
+
+
+}
+.account-details-container {
+  width: 45%;
+  margin: 0 auto;
+ align-items: center;
+ justify-content: center;
+  display: flex;
+  height: 100%;
+}
+
+.account-details-container form {
+  padding: 2rem;
+ 
+   margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+    
+}
+
+.account-details-container label{
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.account-details-container .names{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.account-details-container label {
+  
+}
+
+.account-details-container .phone{
+  width: 100%;
+  display: flex;
+}
+.account-details-container .phone label{
+  width: 100%;
+}
+.account-details-container .address label {
+  width: 100%;
+}
+
+.account-details-container .state-lga{
+  display: flex;
+  justify-content: space-between;
+}
+.account-details-container input {
+  padding: .3rem .5rem;
+  border-radius: 5px;
+   margin-bottom: 2rem;
+   border: .2px solid rgba(0, 0, 0, 0.37);
+
+
+}
+.account-details-container input:focus {
+outline: none;
+
+
+}
+.account-details-container select{
+  padding: .3rem .5rem;
+   border-radius: 5px;
+     border: .2px solid rgba(0, 0, 0, 0.397);
+}
+.account-details-container select:focus {
+ outline: none;
+}
+.account-details-container h5 {
+  
+}
+.account-details-container button{
+  background-color: rgb(255, 0, 0);
+  color: white;
+  border: none;
+  padding: .5rem 0rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+
+.address-content {
+background-color: #F5F3F3;
+height: 100%;
+padding-bottom: 2rem;
+
+
+}
+
+.address-content .account-details-container{
+ width: 50%;
+  margin: 0 2rem ;
+}
+
+.delivery-container {
+   width: 100%;
+   margin: 1rem 2rem;
+   background-color: white;
+}
+
+.delivery-container form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.delivery-container form input {
+
+}
+.delivery-container h5 {
+ 
+
+}
+
+.delivery-container .door-delivery{
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.delivery-container label {
+  display: flex;
+}
+
+.delivery-container input{
+  margin-right: 1rem;
+}
+.address-content svg{
+  margin-right: 1rem;
+}
+.delivery-container svg{
+  margin-right: 1rem;
+}
+
+.delivery-container h6{
+  margin: 0;
+}
+
+.checkout .container{
+  min-width: 100%;
+}
+
+.checkout .account-details-container{
+  width: 100%;
+}
+.icon-title{
+  display: flex;
+  align-items: center;
+ margin-bottom: 2rem;
+ padding: .3rem;
+ background-color: white;
+ width: 100%;
+ border: none;
+ border-bottom: .2px solid rgba(0, 0, 0, 0.356);
+}
+.icon-title-active svg{
+color: rgb(2, 255, 2);
+}
+
+.order-summary-content {
+  background-color: white;
+  margin-left: 1rem;
+  margin-top: 3.5rem;
+}
+.order-summary-content p{
+  font-size: .8rem;
+  margin: .3rem;
+}
+
+.order-summary-content-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.order-summary-content .img-and-details{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+   padding: 0rem 1rem;
+   margin-bottom: .5rem;
+}
+.order-summary-content .img-and-details img {
+  height: 120px;
+}
+.order-summary-content .product-calc{
+  display: flex;
+  flex-direction: column;
+}
+.order-summary-content .product-calc p{
+  font-weight: bold;
+}
+.order-summary-content .product-calc p:nth-child(2) {
+  color: red;
+}
+.order-summary-product-content {
+width: 30%;
+}
+
+.order-summary-content .subtotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.order-summary-content .tax {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.order-summary-content .delivery-cost {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.order-summary-content .total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.process-order-btn {
+  width: 100%;
+}
+
+.process-order-btn button{
+  width: 100%;
+  border: none;
+  background-color: #808080;
+  padding: .3rem .5rem;
+  border-radius: 5px;
+  color: white;
+
+}
+
+.process-order-btn .green-btn-active{
+  background-color: rgb(10, 219, 10);
+}
+
+.payment-with-card {
+  background-color: #F5F7FA;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+}
+.payment-with-card-container {
+  width: 35%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-with-card-container h6 {
+  font-size: .9rem;
+}
+
+.payment-order-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-order-summary h6 {
+  margin: 0;
+  font-size: .9rem;
+}
+.payment-order-summary button{
+  border: none;
+  background-color: #6C757D;
+  padding: .5rem .8rem;
+  border-radius: 5px;
+  color: white;
+  font-size: .8rem;
+  
+}
+
+.total-to-pay {
+  margin: .5rem 0rem;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  padding: .8rem;
+  align-items: center;
+}
+
+.total-to-pay h4 {
+  margin: 0;
+  font-size: .9rem;
+}
+
+.total-to-pay p{
+  margin: 0;
+  font-size: .9rem;
+  font-weight: bold;
+  color: red;
+}
+
+.payment-with-card-container .payment {
+  background-color: white;
 }

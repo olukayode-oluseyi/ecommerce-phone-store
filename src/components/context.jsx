@@ -1,19 +1,21 @@
 import React, { Component, useState, useEffect } from "react";
-import { StoreProducts, DetailProduct } from "./../data";
+
 import { remove } from "store";
+import firebase from './../firebase';
 
 export const ProductContext = React.createContext();
 
 export const ProductProvider = (props) => {
   const [storeProducts, setStoreProducts] = useState([]);
-  const [detailProduct, setDetailProduct] = useState(DetailProduct);
+ 
   const [cart, setCart] = useState([]);
   const [modal, setModal] = useState(false);
   const [modalId, setModalId] = useState();
-  //const [itemTotal, setItemTotal] = useState()
+
   const [subTotal, setSubTotal] = useState(0)
   const [tax, setTax] = useState(0)
   const [total, setTotal] = useState(0)
+  const [user, setUser] = useState(null);
  
 
   useEffect(() => {
@@ -23,17 +25,41 @@ export const ProductProvider = (props) => {
     
   }, [cart]);
 
+
+
   const setProducts = () => {
-    let temp = StoreProducts.map((item) => {
-      cart.forEach((element) => {
-        if (item.id === element.id) {
-        
-          item.inCart = true;
-        }
-      });
-      return item;
-    });
-    setStoreProducts(temp);
+    const productsRef = firebase.database().ref("store-products")
+    productsRef.on('value', (snapshot) => {
+      const databaseProducts = snapshot.val()
+      console.log(databaseProducts)
+      let newArray = []
+      for (let databaseProduct in databaseProducts) {
+        newArray.push({
+          id: databaseProduct,
+          title: databaseProducts[databaseProduct].title,
+          company: databaseProducts[databaseProduct].company,
+          info: databaseProducts[databaseProduct].info,
+          img: databaseProducts[databaseProduct].img,
+          price: databaseProducts[databaseProduct].price,
+          inCart: databaseProducts[databaseProduct].incart,
+          count: databaseProducts[databaseProduct].count,
+          total: databaseProducts[databaseProduct].total
+        })
+      }
+      newArray.map((product) => {
+        cart.map((item) => {
+          if (item.id === product.id) {
+            product.inCart = true
+            return product
+          }
+        })
+      })
+      setStoreProducts(newArray)
+      console.log(newArray)
+    })
+
+
+  
   };
 
   const openModal = (id) => {
@@ -45,10 +71,7 @@ export const ProductProvider = (props) => {
     setModal(false);
   };
 
-  // const handleDetail = (id) => {
-  //     setDetailProductPage(id)
-  // }
-
+ 
   const addToCart = (id) => {
     storeProducts.filter((storeProduct) => {
       if (storeProduct.id === id) {
@@ -62,32 +85,32 @@ export const ProductProvider = (props) => {
 
   const addingToLocalStorage = () => {
     if (cart.length == 0) {
-      console.log("first if");
+    
       if (localStorage.hasOwnProperty("cart")) {
-        console.log("second if");
+      
         const newcart = JSON.parse(localStorage.getItem("cart"));
         setCart(newcart);
       } else {
-        console.log("first else");
+      
       }
     } else {
-      console.log("second else");
+   
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
 
   const handleDeleteInCart = (id) => {
     const newCart = cart.filter((cartItem) => {
-      console.log(id, cartItem.id);
+    
       if (id !== cartItem.id) {
-        console.log("it is", cartItem);
+      
         return cartItem;
       }
     });
-    console.log("newcart", newCart);
+  
     setCart(newCart);
     if (newCart.length === 0) {
-      console.log("it is 0");
+    
       localStorage.clear();
     }
    storeProducts .map((item) => {
@@ -129,16 +152,16 @@ export const ProductProvider = (props) => {
         const product = tempCart[index];
     if (product.count == 1) {
   const newCart = cart.filter((cartItem) => {
-    console.log(id, cartItem.id);
+  
     if (id !== cartItem.id) {
-      console.log("it is", cartItem);
+    
       return cartItem;
     }
   });
-  console.log("newcart", newCart);
+
   setCart(newCart);
   if (newCart.length === 0) {
-    console.log("it is 0");
+
     localStorage.clear();
   }
   storeProducts.map((item) => {
@@ -174,9 +197,7 @@ export const ProductProvider = (props) => {
   return (
     <ProductContext.Provider
       value={{
-        products: [storeProducts, setStoreProducts],
-        details: [detailProduct, setDetailProduct],
-        // handleDetail: handleDetail,
+        products: [storeProducts, setStoreProducts],     
         addToCart: addToCart,
         cart: cart,
         openModal: openModal,
@@ -189,7 +210,9 @@ export const ProductProvider = (props) => {
         total: total,
         decreaseCount: decreaseCount,
         increaseCount: increaseCount,
-        clearCart: clearCart
+        clearCart: clearCart,
+        user: user,
+        setUser: setUser
        
       }}
     >
@@ -198,11 +221,4 @@ export const ProductProvider = (props) => {
   );
 };
 
-const setDetailProductPage = (id) => {
-  // const product = storeProducts.find((StoreProduct) => {
-  //   if (StoreProduct.id === id) {
-  //     return StoreProduct
-  //   }
-  // })
-  // setDetailProduct(product)
-};
+
