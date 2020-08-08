@@ -566,12 +566,12 @@ padding-bottom: 2rem;
 
 .address-content .account-details-container{
  width: 50%;
-  margin: 0 2rem ;
+  margin: 0 0rem ;
 }
 
 .delivery-container {
    width: 100%;
-   margin: 1rem 2rem;
+   margin: 1rem 0rem;
    background-color: white;
 }
 
@@ -636,7 +636,7 @@ color: rgb(2, 255, 2);
 
 .order-summary-content {
   background-color: white;
-  margin-left: 1rem;
+ 
   margin-top: 3.5rem;
 }
 .order-summary-content p{
@@ -654,7 +654,7 @@ color: rgb(2, 255, 2);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-   padding: 0rem 1rem;
+   
    margin-bottom: .5rem;
 }
 .order-summary-content .img-and-details img {
@@ -671,7 +671,10 @@ color: rgb(2, 255, 2);
   color: red;
 }
 .order-summary-product-content {
-width: 30%;
+width: 40%;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-end;
 }
 
 .order-summary-content .subtotal {
@@ -718,6 +721,7 @@ width: 30%;
   width: 100%;
   height: 90vh;
   display: flex;
+  position: relative;
 }
 .payment-with-card-container {
   width: 35%;
@@ -772,4 +776,292 @@ width: 30%;
 
 .payment-with-card-container .payment {
   background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+.payment-with-card-container .payment button {
+  width: 100%;
+  padding: .5rem .8rem;
+  border: none;
+  background-color: #6C757D;
+  color: white;
+  border-radius: 5px;
+
+}
+.payment-with-card-container img {
+  height: 100px;
+  width: 200px;
+  margin-top: 1rem;
+}
+
+.see-details-modal {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.267);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  display: flex;
+}
+
+.see-details-modal-container {
+  width: 35%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.see-details-modal-container2{
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.see-details-modal p {
+   margin: 0;
+   font-size: .8rem;
+   text-transform: capitalize;
+}
+.see-details-modal h5 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: bold;
+ 
+}
+.see-details-modal h6 {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.397);
+  font-weight: bold;
+   font-size: .8rem;
+}
+.title-and-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   padding: 1rem;
+}
+
+.title-and-close button{
+  border: none;
+ padding: .5rem;
+ border-radius: 50%;
+  align-items: center;
+  display: flex;
+  color: white;
+  background-color: #6C757D;
+}
+.modal-cart-items{
+  background-color: #F5F7FA;
+  padding: 1rem;
+   align-items: center;
+   display: flex;
+  
+}
+.modal-items-products-qty{
+padding: 0 1rem 1rem 1rem;
+}
+.modal-items-products-qty2{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.pro-order-title-and-price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+ 
+}
+
+.pro-order-qty{
+  display: flex;
+  align-items: center;
+  margin-top: .5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.274);
+ 
+}
+
+.pro-order-qty p{
+  margin-right: 3rem;
+}
+
+.shipping-fee{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:  0 1rem 1rem 1rem ;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.274);
+}
+.tax-fee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.274);
+}
+.see-details-modal .order-total{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.274);
+
+}
+
+.payment-summary{
+  background-color: #F5F7FA;
+  padding: 1rem;
+}
+.modal-total-to-pay{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+
+
+
+
+
+@media (max-width: 1200px) {
+  .account-details-container {
+    width: 60%;
+  }
+  .signup-container{
+     width: 60%;
+  }
+  .login-container{
+    width: 50%;
+  }
+  .order-summary-product-content {
+    width: 46%;
+  }
+  .payment-with-card-container{
+     width: 50%;
+  }
+  .see-details-modal-container{
+     width: 50%;
+  }
+}
+@media (max-width: 992px) {
+  .account-details-container {
+    width: 70%;
+  }
+  .signup-container {
+    width: 70%;
+  }
+   .login-container {
+     width: 60%;
+   }
+   .order-summary-product-content {
+     width: 65%;
+    
+   }
+   .payment-with-card-container {
+     width: 60%;
+   }
+   .see-details-modal-container {
+     width: 60%;
+   }
+
+}
+@media (max-width: 768px) {
+   .account-details-container {
+     width: 75%;
+   }
+   .signup-container {
+     width: 75%;
+   }
+    .login-container {
+      width: 65%;
+    }
+    .payment-with-card-container {
+      width: 65%;
+    }
+    .see-details-modal-container {
+      width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+   .account-details-container {
+     width: 80%;
+   }
+   .account-details-container .names {
+     flex-direction: column;
+   }
+
+   .account-details-container label {
+     width: 100%;
+   }
+
+   .account-details-container .state-lga {
+     flex-direction: column;
+   }
+   .signup-container {
+     width: 80%;
+   }
+   .signup-container .upper-info{
+     flex-direction: column;
+     margin: 0;
+   }
+   .signup-container input{
+     width: 100%;
+     margin-bottom: 1.5rem;
+   }
+ 
+   .signup-container .lower-info{
+      flex-direction: column;
+      margin: 0;
+   }
+    .login-container {
+      width: 80%;
+    }
+    .payment-with-card-container {
+      width: 80%;
+    }
+    .see-details-modal-container {
+      width: 80%;
+    }
+}
+
+
+
+@media (max-width: 400px) {
+  .account-details-container {
+    width: 90%;
+  }
+
+  .account-details-container .names{
+    flex-direction: column;
+  }
+  .account-details-container label {
+    width: 100%;
+  }
+  .account-details-container .state-lga{
+    flex-direction: column;
+  }
+  .signup-container {
+    width: 90%;
+  }
+   .login-container {
+     width: 95%;
+   }
+   .login-container a{
+     font-size: .9rem;
+   }
+   .payment-with-card-container {
+     width: 95%;
+   }
+   .see-details-modal-container {
+     width: 95%;
+   }
+
+}
+

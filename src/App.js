@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import NavBar from './components/Navbar';
@@ -16,10 +16,13 @@ import SignUp from './components/accounts-components/signup';
 import Checkout from './components/checkout-components/checkout';
 import CheckCheckout from './components/checkout-components/checkCheckout';
 import ProcessOrder from './components/process-order-component/ProcessOrder';
+import { ProductContext } from './components/context';
+import Login from './components/accounts-components/login';
 
 
 
 function App() {
+  const {user} = useContext(ProductContext)
   return (
     <>
       <NavBar />
@@ -32,7 +35,7 @@ function App() {
         <Route path="/checkout" component={CheckCheckout} />
         <Route
           path="/process-order/:paymentType/:mainTotal/:orderCode"
-          component={ProcessOrder}
+          component={user? ProcessOrder: Login}
         />
         <Route component={Default} />
       </Switch>

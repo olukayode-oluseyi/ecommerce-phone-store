@@ -13,7 +13,7 @@ const OrderSummary = ({
 }) => {
   console.log(orderCode)
   const { cart, setCart, subTotal, total, tax } = useContext(ProductContext);
-  const [proceed, setProceed] = useState(false);
+  const [proceed, setProceed] = useState(true);
   const [mainTotal, setMainTotal] = useState(Number);
   useEffect(() => {
     settingBtnToGreen();
@@ -33,7 +33,7 @@ const OrderSummary = ({
     if (greenlight && paymentType && deliveryType) {
       setProceed(true);
     } else {
-      setProceed(false)
+      //setProceed(false)
     }
   };
   return (

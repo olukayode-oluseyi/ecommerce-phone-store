@@ -18,7 +18,7 @@ const AccountContent = () => {
     console.log(user)
 
     useEffect(() => {
-        retrieveUserInfoFromFirestore()
+        //retrieveUserInfoFromFirestore()
     }, [user])
 
 
