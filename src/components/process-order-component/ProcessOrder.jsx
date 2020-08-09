@@ -10,7 +10,7 @@ const ProcessOrder = ({ match }) => {
   const { user, clearCart } = useContext(ProductContext);
   const { mainTotal, paymentType, orderCode } = match.params;
 
-  const publicKey = "pk_test_541e67ddb4b18d513cfa4d67ed80165fbe9c51b8";
+  const publicKey = process.env.REACT_APP_PAYSTACK_ID;
 
   const [email, setEmail] = useState(user.email);
   const [order, setOrder] = useState([]);

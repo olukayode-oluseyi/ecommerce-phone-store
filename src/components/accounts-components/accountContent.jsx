@@ -15,7 +15,7 @@ const AccountContent = () => {
     const [userLGA, setUserLGA] = useState('')
     const { user, setUser } = useContext(ProductContext);
     
-  
+  const [update, setUpdate] = useState(false)
 
     useEffect(() => {
         retrieveUserInfoFromFirestore()
@@ -75,7 +75,8 @@ const AccountContent = () => {
             userState: userstate,
             userLGA: userLGA
         }).then(() => {
-            console.log('document successfully updated')
+          console.log('document successfully updated')
+          setUpdate(true)
         }).catch(() => {
             console.log('error')
         })
@@ -137,7 +138,7 @@ const AccountContent = () => {
                 </select>
               </label>
                       </div>
-            <button>update</button>
+            <button>{update? 'updated': 'update'}</button>
           </form>
         </div>
       </div>
