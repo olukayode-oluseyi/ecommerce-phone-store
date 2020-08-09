@@ -22,7 +22,8 @@ import Login from './components/accounts-components/login';
 
 
 function App() {
-  const {user} = useContext(ProductContext)
+  const { user } = useContext(ProductContext)
+  
   return (
     <>
       <NavBar />

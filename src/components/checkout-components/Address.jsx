@@ -82,6 +82,7 @@ const Address = ({
             <label htmlFor="">
               State{" "}
               <select name="state" onChange={handleSwitch} id="select id">
+                <option value="" selected disabled hidden>Choose State</option>
                 {locations.map((state) => {
                   return (
                     <option
@@ -98,6 +99,7 @@ const Address = ({
             <label>
               City/LGA{" "}
               <select name="lga" onChange={handleSwitch} id="">
+                <option value="" selected disabled hidden>Choose Local Government Area</option>
                 {locations[id].state.locals.map((lga) => {
                   return <option key={lga.id}>{lga.name}</option>;
                 })}

@@ -9,7 +9,7 @@ import { ProductContext } from './context';
 const Product = (props) => {
 
   
-  // const { cart } = useContext(ProductContext);
+ 
  
      const { title, img, price, inCart, id } = props.product;
   
@@ -34,7 +34,7 @@ const Product = (props) => {
           </div>
           <div className="card-footer">
             <p>{title}</p>
-            <h5>${price}</h5>
+            <h5>#{price}</h5>
           </div>
         </div>
       </div>

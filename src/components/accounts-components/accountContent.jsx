@@ -42,7 +42,7 @@ const AccountContent = () => {
    
         let id = event.target.selectedIndex;
         if (name === 'state') {
-            setId(id);
+            setId(id-1);
             setUserState(value)
         }
         if (name === 'lga') {
@@ -112,7 +112,8 @@ const AccountContent = () => {
             <div className="state-lga">
               <label htmlFor="">
                 State{" "}
-                <select name='state'  value={userstate} onChange={handleSwitch} id="select id">
+                <select name='state' value={userstate} onChange={handleSwitch} id="select id">
+                  <option value="" selected disabled hidden>Choose State</option>
                   {locations.map((state) => {
                     return (
                       <option
@@ -129,6 +130,7 @@ const AccountContent = () => {
               <label >
                 City/LGA{" "}
                 <select name="lga" value={userLGA} onChange={handleSwitch} id="">
+                  <option value="" selected disabled hidden>Choose Local Govt Area</option>
                   {locations[id].state.locals.map((lga) => {
                     return <option key={lga.id} value={lga.name} >{lga.name}</option>;
                   })}

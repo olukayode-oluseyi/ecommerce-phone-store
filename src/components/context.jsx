@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-
+import { usePromiseTracker } from "react-promise-tracker";
 import { remove } from "store";
 import firebase from './../firebase';
 
@@ -7,7 +7,7 @@ export const ProductContext = React.createContext();
 
 export const ProductProvider = (props) => {
   const [storeProducts, setStoreProducts] = useState([]);
- 
+ const { promiseInProgress } = usePromiseTracker();
   const [cart, setCart] = useState([]);
   const [modal, setModal] = useState(false);
   const [modalId, setModalId] = useState();

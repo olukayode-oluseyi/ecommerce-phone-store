@@ -4,7 +4,9 @@ import { ProductContext } from "../context";
 import firebase from "./../../firebase";
 import payStackImg from "./images/paystack2.png";
 import SeeDetails from "./process-order-modal";
+import { useHistory } from 'react-router-dom';
 const ProcessOrder = ({ match }) => {
+  const history = useHistory();
   const { user, clearCart } = useContext(ProductContext);
   const { mainTotal, paymentType, orderCode } = match.params;
 
@@ -39,6 +41,7 @@ const ProcessOrder = ({ match }) => {
     publicKey,
     text: "Pay Now",
     onSuccess: () => {
+      history.push("/");
       clearCart();
       alert("Thanks for doing business with us! Come back soon!!");
       firebase
@@ -66,7 +69,7 @@ const ProcessOrder = ({ match }) => {
             </div>
             <div className="total-to-pay">
               <h4>TOTAL TO PAY</h4>
-              <p>${mainTotal}</p>
+              <p>#{mainTotal}</p>
             </div>
             <h6>PAYMENT METHOD</h6>
             <div className="payment">

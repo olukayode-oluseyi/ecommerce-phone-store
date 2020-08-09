@@ -46,7 +46,7 @@ const Details = ({match}) => {
                               <div className="col-md-6 phone-info">
                                 <h4>Model : {title}</h4>
                                 <h5>MADE BY : {company}</h5>
-                                <h3>Price : ${price}</h3>
+                                <h3>Price : #{price}</h3>
                                 <h6> Some info About Product : </h6>
                                 <p>{info}</p>
                                 <div className="btns">

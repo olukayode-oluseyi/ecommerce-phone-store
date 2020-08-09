@@ -149,7 +149,7 @@ const Checkout = () => {
 
     let id = event.target.selectedIndex;
     if (name === "state") {
-      setId(id);
+      setId(id - 1);
       setUserState(value);
     }
     if (name === "lga") {

@@ -51,9 +51,9 @@ const Cart = () => {
                   CLEAR CART
                 </button>
               </Link>
-              <p>subtotal: ${subTotal}</p>
-              <p>tax: ${tax}</p>
-                <p>total: ${total}</p>
+              <p>subtotal: #{subTotal}</p>
+              <p>tax: #{tax}</p>
+                <p>total: #{total}</p>
                 <button className='btn btn-warning'>
                   <Link to='/checkout'>
                     CHECKOUT
