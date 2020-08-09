@@ -40,7 +40,7 @@ export const ProductProvider = (props) => {
           company: databaseProducts[databaseProduct].company,
           info: databaseProducts[databaseProduct].info,
           img: databaseProducts[databaseProduct].img,
-          price: databaseProducts[databaseProduct].price,
+          price: parseFloat(databaseProducts[databaseProduct].price),
           inCart: databaseProducts[databaseProduct].incart,
           count: databaseProducts[databaseProduct].count,
           total: databaseProducts[databaseProduct].total
