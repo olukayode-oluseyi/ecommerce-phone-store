@@ -4,13 +4,13 @@ import { ProductContext } from "../context";
 import firebase from "./../../firebase";
 import payStackImg from "./images/paystack2.png";
 import SeeDetails from "./process-order-modal";
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 const ProcessOrder = ({ match }) => {
   const history = useHistory();
   const { user, clearCart } = useContext(ProductContext);
   const { mainTotal, paymentType, orderCode } = match.params;
 
-  const publicKey = "pk_test_541e67ddb4b18d513cfa4d67ed80165fbe9c51b8";
+  const publicKey = process.env.REACT_APP_PAYSTACK_ID;
 
   const [email, setEmail] = useState(user.email);
   const [order, setOrder] = useState([]);
