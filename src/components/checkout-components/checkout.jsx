@@ -14,7 +14,7 @@ const Checkout = () => {
   const [id, setId] = useState(Number);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(Number);
   const [address, setAddress] = useState("");
   const [userstate, setUserState] = useState("");
   const [userLGA, setUserLGA] = useState("");
@@ -22,6 +22,7 @@ const Checkout = () => {
   const [paymentType, setPaymentType] = useState("");
   const [deliveryFee, setDeliveryFee] = useState(Number);
   const [orderCode, setOrderCode] = useState('')
+  const [greenlight, setGreenlight] = useState(false);
   useEffect(() => {
     retrieveUserInfoFromFirestore()
   }, [user]);
@@ -56,6 +57,7 @@ const Checkout = () => {
       .get()
       .then((doc) => {
         if (doc.exists) {
+          console.log(doc.data(), doc)
           setCurrentUser(doc.data());
         } else {
         }
@@ -188,8 +190,7 @@ const Checkout = () => {
      
      setOrderCode(rString);
   };
-  const handleOrder = () => {
-  
+  const handleOrder = () => { 
       firebase
         .database()
         .ref("orders/" + orderCode)
@@ -203,14 +204,8 @@ const Checkout = () => {
           userstate: userstate,
           address: address,
           phone: phone,
-          cart: cart
-
-          
+          cart: cart        
         });
-    
-    
-  
-
   }
   function randomString(length, chars) {
       var result = "";
@@ -218,7 +213,7 @@ const Checkout = () => {
         result += chars[Math.floor(Math.random() * chars.length)];
       return result;
     }
-  const [greenlight, setGreenlight] = useState(false);
+
 
   return (
     <div className="checkout">
