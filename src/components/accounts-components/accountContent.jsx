@@ -2,6 +2,8 @@ import React, { Component, useState, useContext, useEffect } from "react";
 import state from "./locations.json";
 import { ProductContext } from "../context";
 import { db } from "../../firebase";
+import { Spinner } from 'react-bootstrap';
+import { set } from "store";
 
 const AccountContent = () => {
     const [currentUser, setCurrentUser] = useState([]);
@@ -13,8 +15,9 @@ const AccountContent = () => {
     const [address, setAddress] = useState("");
     const [userstate, setUserState] = useState('')
     const [userLGA, setUserLGA] = useState('')
-    const { user, setUser } = useContext(ProductContext);
-    
+  const { user, setUser } = useContext(ProductContext);
+  const [spinner, setSpinner] = useState(false)
+    const [message, setMessage] = useState('')
   const [update, setUpdate] = useState(false)
 
     useEffect(() => {
@@ -66,7 +69,8 @@ const AccountContent = () => {
         }
         
     }
-    const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
+      setSpinner(true)
         event.preventDefault()
         const userRef = db.collection('users').doc(user.uid)
 
@@ -75,10 +79,14 @@ const AccountContent = () => {
             userState: userstate,
             userLGA: userLGA
         }).then(() => {
+          setSpinner(false)
+          setMessage('updated, thank you')
           console.log('document successfully updated')
           setUpdate(true)
-        }).catch(() => {
-            console.log('error')
+        }).catch((error) => {
+          setSpinner(false)
+          console.log('error')
+          set(error.message)
         })
     }
   return (
@@ -137,8 +145,16 @@ const AccountContent = () => {
                   })}
                 </select>
               </label>
-                      </div>
-            <button>{update? 'updated': 'update'}</button>
+            </div>
+            <p style={{color: 'red'}} >{message}</p>
+            <button>  {spinner ? <Spinner
+              as="span"
+              animation="border"
+              variant='light'
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            /> : 'UPDATE'}</button>
           </form>
         </div>
       </div>

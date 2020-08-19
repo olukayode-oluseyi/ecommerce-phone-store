@@ -18,6 +18,7 @@ import CheckCheckout from './components/checkout-components/checkCheckout';
 import ProcessOrder from './components/process-order-component/ProcessOrder';
 import { ProductContext } from './components/context';
 import Login from './components/accounts-components/login';
+import ForgotPassword from './components/forgot-password-component/ForgotPassword';
 
 
 
@@ -36,8 +37,9 @@ function App() {
         <Route path="/checkout" component={CheckCheckout} />
         <Route
           path="/process-order/:paymentType/:mainTotal/:orderCode"
-          component={user? ProcessOrder: Login}
+          component={user ? ProcessOrder : Login}
         />
+        <Route path="/account/forgot-password" component={ForgotPassword} />
         <Route component={Default} />
       </Switch>
       <Modal />

@@ -6,7 +6,6 @@ import { ProductContext } from '../context';
 
 const Account = () => {
    const { user, setUser } = useContext(ProductContext)
-   console.log(user)
     return (
       <div className="account-component">
         {user ? <AccountContent/> : <Login/>}

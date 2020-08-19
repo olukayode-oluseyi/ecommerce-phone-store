@@ -54,14 +54,9 @@ export const ProductProvider = (props) => {
           }
         })
       })
-      setStoreProducts(newArray)
-     
+      setStoreProducts(newArray) 
     })
-
-
-  
   };
-
   const openModal = (id) => {
     setModalId(id);
     setModal(true);

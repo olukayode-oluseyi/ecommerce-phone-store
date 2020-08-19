@@ -204,7 +204,8 @@ const Checkout = () => {
           userstate: userstate,
           address: address,
           phone: phone,
-          cart: cart        
+          cart: cart,
+          orderStage: 'pending'
         });
   }
   function randomString(length, chars) {

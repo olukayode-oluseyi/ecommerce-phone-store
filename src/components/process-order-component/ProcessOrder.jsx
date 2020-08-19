@@ -49,6 +49,7 @@ const ProcessOrder = ({ match }) => {
         .ref("orders/" + orderCode)
         .update({
           status: "paid",
+          orderStage: 'pending'
         });
     },
 

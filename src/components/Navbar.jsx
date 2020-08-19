@@ -8,7 +8,7 @@ import { ProductContext } from "./context";
 const NavBar = () => {
   const { cart } = useContext(ProductContext);
   return (
-    <Navbar bg="secondary" className="navbar-dark" expand="sm">
+    <Navbar bg="secondary" className="navbar-dark" expand="md">
       <Link to="/">
         <Navbar.Brand>
           <img src={logo} alt="" />

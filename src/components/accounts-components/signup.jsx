@@ -3,6 +3,7 @@ import firebase, { auth, provider, db } from "./../../firebase";
 import { ProductContext } from "../context";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 
 const SignUp = () => {
   const history = useHistory();
@@ -14,7 +15,9 @@ const SignUp = () => {
   const { user, setUser } = useContext(ProductContext);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [validatedEmail, setValidatedEmail] = useState(false);
-const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage2, setErrorMessage2] = useState('')
+  const [spinner, setSpinner] = useState(false)
   useEffect(() => {
     inAppValidation();
   });
@@ -52,6 +55,7 @@ const [errorMessage, setErrorMessage] = useState('')
     ) {
       setBtnDisabled(false);
       setErrorMessage('please proceed')
+      
     } else {
       setBtnDisabled(true);
       setErrorMessage('fill up all fields')
@@ -59,6 +63,7 @@ const [errorMessage, setErrorMessage] = useState('')
   };
 
   const handleSubmit = (event) => {
+    setSpinner(true)
     event.preventDefault();
     firebase
       .auth()
@@ -84,7 +89,9 @@ const [errorMessage, setErrorMessage] = useState('')
 
         history.push("/account");
       }).catch((error) => {
-       setErrorMessage(error.message)
+        console.log(error)
+        setErrorMessage2(error.message + ' please try again')
+        setSpinner(false)
       })
   };
 
@@ -117,7 +124,7 @@ const [errorMessage, setErrorMessage] = useState('')
               value={email}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               name="password"
               onChange={handleChange}
@@ -134,10 +141,23 @@ const [errorMessage, setErrorMessage] = useState('')
             />
           </div>
           <p style={{
-            color:'red'}} >{errorMessage}</p>
-          <button disabled={btnDisabled}>CREATE ACCOUNT</button>
+            color: 'red'
+          }} >{errorMessage}</p> <br />
+          <p style={{
+            color: 'red'
+          }} >{errorMessage2}</p>
+          <button disabled={btnDisabled}>
+          {spinner ? <Spinner
+            as="span"
+            animation="border"
+            variant='light'
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          /> : 'CREATE ACCOUNT'}</button>
         </form>
-        <button>REGISTER WITH GOOGLE</button>
+        {//<button disabled={true}>REGISTER WITH GOOGLE</button>//  
+        }
       </div>
     </div>
   );
