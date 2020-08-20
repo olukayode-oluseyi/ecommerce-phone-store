@@ -5,6 +5,7 @@ import firebase from "./../../firebase";
 import payStackImg from "./images/paystack2.png";
 import SeeDetails from "./process-order-modal";
 import { useHistory } from 'react-router-dom';
+import NumberFormat from "react-number-format";
 const ProcessOrder = ({ match }) => {
   const history = useHistory();
   const { user, clearCart } = useContext(ProductContext);
@@ -70,7 +71,15 @@ const ProcessOrder = ({ match }) => {
             </div>
             <div className="total-to-pay">
               <h4>TOTAL TO PAY</h4>
-              <p>#{mainTotal}</p>
+              <p>
+                {" "}
+                <NumberFormat
+                  value={mainTotal}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />
+              </p>
             </div>
             <h6>PAYMENT METHOD</h6>
             <div className="payment">

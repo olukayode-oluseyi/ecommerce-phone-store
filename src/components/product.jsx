@@ -5,7 +5,7 @@ import { FaCartPlus } from "react-icons/fa";
 import PropTypes from 'prop-types'
 import { ProductContext } from './context';
 
-
+import NumberFormat from 'react-number-format';
 const Product = (props) => {
 
   
@@ -34,7 +34,7 @@ const Product = (props) => {
           </div>
           <div className="card-footer">
             <p>{title}</p>
-            <h5>#{price}</h5>
+            <h5><NumberFormat value={price} displayType={'text'}  thousandSeparator={true} prefix={'#'} />  </h5>
           </div>
         </div>
       </div>

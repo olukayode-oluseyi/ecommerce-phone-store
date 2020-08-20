@@ -3,7 +3,7 @@ import { ProductContext } from '../context';
 import N95 from "../../images/N95 m.jpg";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import NumberFormat from "react-number-format";
 const OrderSummary = ({
   orderCode, deliveryFee,
   greenlight,
@@ -47,9 +47,25 @@ const OrderSummary = ({
                 <img src={item.img} alt="" />
                 <div className="order-summary-product-content">
                   <p>{item.title}</p>
-                  <p>price: #{item.price}</p>
+                  <p>
+                    price:{" "}
+                    <NumberFormat
+                      value={item.price}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix={"#"}
+                    />{" "}
+                  </p>
                   <p>Quantity: {item.count}</p>
-                  <p>product-total: #{item.total}</p>
+                  <p>
+                    product-total:{" "}
+                    <NumberFormat
+                      value={item.total}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix={"#"}
+                    />{" "}
+                  </p>
                 </div>
               </div>
             );
@@ -58,22 +74,52 @@ const OrderSummary = ({
           <div className="product-calc">
             <div className="subtotal">
               <p>sub-total</p>
-              <p>#{subTotal}</p>
+              <p>
+                <NumberFormat
+                  value={subTotal}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />{" "}
+              </p>
             </div>
             <div className="tax">
               <p>Tax</p>
-              <p>#{tax}</p>
+              <p>
+                <NumberFormat
+                  value={tax}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />{" "}
+              </p>
             </div>
             <div className="delivery-cost">
               <p>Delivery cost</p>
-              <p>#{deliveryFee}</p>
+              <p>
+                <NumberFormat
+                  value={deliveryFee}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />{" "}
+              </p>
             </div>
             <div className="total">
               <p>total cost</p>
-              <p>#{mainTotal}</p>
+              <p>
+                <NumberFormat
+                  value={mainTotal}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />{" "}
+              </p>
             </div>
             <div className="process-order-btn">
-              <Link to={`/process-order/${paymentType}/${mainTotal}/${orderCode}`}>
+              <Link
+                to={`/process-order/${paymentType}/${mainTotal}/${orderCode}`}
+              >
                 <button
                   disabled={!proceed}
                   className={proceed ? "green-btn-active" : null}

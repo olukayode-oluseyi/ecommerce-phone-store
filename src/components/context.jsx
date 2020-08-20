@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import { usePromiseTracker } from "react-promise-tracker";
 import { remove } from "store";
-import firebase from './../firebase';
+import firebase, { auth } from './../firebase';
 
 export const ProductContext = React.createContext();
 
@@ -26,6 +26,18 @@ export const ProductProvider = (props) => {
   }, [cart]);
 
 
+  useEffect(() => {
+    
+    auth.onAuthStateChanged((user) => {
+      console.log(user)
+      if (user) {
+
+        setUser(user)
+      } else {
+        setUser(null)
+      }
+    })
+  }, [])
 
   const setProducts = () => {
     const productsRef = firebase.database().ref("store-products")

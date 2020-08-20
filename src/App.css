@@ -1062,6 +1062,12 @@ bottom: 50%;
 
 }
 
+.to-cart{
+  margin-top: 1rem;
+  color: green;
+  align-self: flex-end;
+}
+
 
 
 

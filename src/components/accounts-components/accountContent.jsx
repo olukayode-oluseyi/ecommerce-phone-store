@@ -4,6 +4,7 @@ import { ProductContext } from "../context";
 import { db } from "../../firebase";
 import { Spinner } from 'react-bootstrap';
 import { set } from "store";
+import { Link } from "react-router-dom";
 
 const AccountContent = () => {
     const [currentUser, setCurrentUser] = useState([]);
@@ -19,6 +20,7 @@ const AccountContent = () => {
   const [spinner, setSpinner] = useState(false)
     const [message, setMessage] = useState('')
   const [update, setUpdate] = useState(false)
+  const [showLink, setShowLink] = useState(true)
 
     useEffect(() => {
         retrieveUserInfoFromFirestore()
@@ -30,7 +32,7 @@ const AccountContent = () => {
 
         docRef.get().then((doc) => {
             if (doc.exists) {
-                console.log('document data', doc.data())
+               
             setCurrentUser(doc.data())
             } else {
                 console.log('no such document')
@@ -83,6 +85,8 @@ const AccountContent = () => {
           setMessage('updated, thank you')
           console.log('document successfully updated')
           setUpdate(true)
+          setShowLink(true)
+
         }).catch((error) => {
           setSpinner(false)
           console.log('error')
@@ -98,31 +102,55 @@ const AccountContent = () => {
             <div className="names">
               <label htmlFor="">
                 First Name
-                <input type="text"  name='firstName' value={currentUser.firstName}  />
+                <input
+                  type="text"
+                  name="firstName"
+                  value={currentUser.firstName}
+                />
               </label>
 
               <label htmlFor="">
                 Last Name
-                <input type="text"  name='lastName' value={currentUser.lastName}  />
+                <input
+                  type="text"
+                  name="lastName"
+                  value={currentUser.lastName}
+                />
               </label>
             </div>
             <div className="phone">
               <label htmlFor="">
                 Phone
-                <input type="tel"  name='phone' value={currentUser.phoneNumber} />
+                <input
+                  type="tel"
+                  name="phone"
+                  value={currentUser.phoneNumber}
+                />
               </label>
             </div>
             <div className="address">
               <label htmlFor="">
                 Address
-                <input type="text" onChange={handleChange} name='address' value={address} />
+                <input
+                  type="text"
+                  onChange={handleChange}
+                  name="address"
+                  value={address}
+                />
               </label>
             </div>
             <div className="state-lga">
               <label htmlFor="">
                 State{" "}
-                <select name='state' value={userstate} onChange={handleSwitch} id="select id">
-                  <option value="" selected disabled hidden>Choose State</option>
+                <select
+                  name="state"
+                  value={userstate}
+                  onChange={handleSwitch}
+                  id="select id"
+                >
+                  <option value="" selected disabled hidden>
+                    Choose State
+                  </option>
                   {locations.map((state) => {
                     return (
                       <option
@@ -136,25 +164,48 @@ const AccountContent = () => {
                   })}
                 </select>
               </label>
-              <label >
+              <label>
                 City/LGA{" "}
-                <select name="lga" value={userLGA} onChange={handleSwitch} id="">
-                  <option value="" selected disabled hidden>Choose Local Govt Area</option>
+                <select
+                  name="lga"
+                  value={userLGA}
+                  onChange={handleSwitch}
+                  id=""
+                >
+                  <option value="" selected disabled hidden>
+                    Choose Local Govt Area
+                  </option>
                   {locations[id].state.locals.map((lga) => {
-                    return <option key={lga.id} value={lga.name} >{lga.name}</option>;
+                    return (
+                      <option key={lga.id} value={lga.name}>
+                        {lga.name}
+                      </option>
+                    );
                   })}
                 </select>
               </label>
             </div>
-            <p style={{color: 'red'}} >{message}</p>
-            <button>  {spinner ? <Spinner
-              as="span"
-              animation="border"
-              variant='light'
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            /> : 'UPDATE'}</button>
+            <p style={{ color: "red" }}>{message}</p>
+            <button>
+              {" "}
+              {spinner ? (
+                <Spinner
+                  as="span"
+                  animation="border"
+                  variant="light"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              ) : (
+                "UPDATE"
+              )}
+            </button>
+            {showLink && (
+              <Link className="to-cart" to="/cart">
+                To cart?
+              </Link>
+            )}
           </form>
         </div>
       </div>

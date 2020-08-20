@@ -126,22 +126,22 @@ const Checkout = () => {
       setDeliveryFee(0);
     } else {
       if (SWvalue) {
-        setDeliveryFee(5);
+        setDeliveryFee(1500);
       }
       if (SEvalue) {
-        setDeliveryFee(7);
+        setDeliveryFee(3500);
       }
       if (SSvalue) {
-        setDeliveryFee(9);
+        setDeliveryFee(3500);
       }
       if (NCvalue) {
-        setDeliveryFee(10);
+        setDeliveryFee(4000);
       }
       if (NEvalue) {
-        setDeliveryFee(20);
+        setDeliveryFee(6000);
       }
       if (NWvalue) {
-        setDeliveryFee(16);
+        setDeliveryFee(5000);
       }
     }
   };

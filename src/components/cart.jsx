@@ -1,7 +1,7 @@
 import React, { Component, useContext } from 'react';
 import { ProductContext } from './context';
 import { useState, useEffect } from 'react';
-
+import NumberFormat from "react-number-format";
 import { Link } from 'react-router-dom';
 import Title from './title';
 import CartColumns from './cartColumns';
@@ -32,18 +32,15 @@ const Cart = () => {
   
    };
   return (
-
-   
-
     <div className="container-fluid cart-page">
       {cart.length === 0 ? (
         <Title title="YOUR CART IS EMPTY" />
       ) : (
         <>
           <Title title="YOUR CART" />
-            {decider? <CartColumns />: null}
-           
-            <MainCart />
+          {decider ? <CartColumns /> : null}
+
+          <MainCart />
           <div className="row">
             <div className="subtotal-tax-total">
               <Link to="/">
@@ -51,15 +48,36 @@ const Cart = () => {
                   CLEAR CART
                 </button>
               </Link>
-              <p>subtotal: #{subTotal}</p>
-              <p>tax: #{tax}</p>
-                <p>total: #{total}</p>
-                <button className='btn btn-warning'>
-                  <Link to='/checkout'>
-                    CHECKOUT
-                  </Link>
-                </button>
-             
+              <p>
+                subtotal:{" "}
+                <NumberFormat
+                  value={subTotal}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />
+              </p>
+              <p>
+                tax:{" "}
+                <NumberFormat
+                  value={tax}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />
+              </p>
+              <p>
+                total:{" "}
+                <NumberFormat
+                  value={total}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"#"}
+                />
+              </p>
+              <button className="btn btn-warning">
+                <Link to="/checkout">CHECKOUT</Link>
+              </button>
             </div>
           </div>
         </>
